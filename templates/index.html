@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            
+        }
+
+        header {
+            position: relative;
+            width: 100%;
+            padding: 20px 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* */
+            background: #0f0c29;
+        }
+
+        header .logo h1{
+            color: #fff;
+            font-size: 3rem;
+        }
+        header .logo:hover {
+            cursor: pointer;
+        }
+
+        header ul {
+            display: flex;
+            list-style: none;
+        }
+
+        header ul li {
+            margin: 0 20px;
+        }
+
+        header ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.4rem;
+        }
+
+        .main .form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 550px;
+            height: auto;
+            padding: 50px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .form form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .form form label{
+            text-align: center;
+            margin: 10px 0;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .form form input[type = 'text'] {
+            padding: 10px 20px;
+            outline: none;
+            border-radius: 6px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .btn {
+            margin: 20px 0;
+            outline: none;
+            border: none;
+            padding: 10px 40px;
+            border-radius: 20px;
+            border: 2px solid #0f0c29;
+            background: transparent;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all .2s ease-in-out;
+        }
+
+        .btn:hover {
+            background-color: #0f0c29;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>ChatApp</h1>
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Version</a></li>
+        </ul>
+    </header>
+    <section class="main">
+        <div class="form">
+            <form action="check" method="POST">
+                {% csrf_token %}
+                <label for="RoomName">RoomName</label>
+                <input type="text" name="roomname" id="roomname" autofocus autocomplete="off" placeholder="Enter RoomName">
+                <label for="UserName">UserName</label>
+                <input type="text" name="username" id="username" autocomplete="off" placeholder="Enter UserName">
+                <input type="submit" value="Submit" class="btn">
+            </form>
+        </div>
+    </section>
+</body>
+</html>
